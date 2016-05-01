@@ -1,6 +1,8 @@
 package org.dfernandez;
 
 
+import org.dfernandez.model.Talk;
+import org.dfernandez.model.TalkLength;
 import org.dfernandez.util.FilesUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,9 +17,11 @@ import static org.junit.Assert.*;
 public class FileIOTest {
 
     static final String INPUT_FILE_TALKS = "src/test/resources/input_file_talks";
-     @Before
-    public void init() {
 
+    List<String> lines;
+    Talk talk;
+    @Before
+    public void init() {
      }
 
 
@@ -30,13 +34,18 @@ public class FileIOTest {
     @Test
     public void testReadFileLines() {
 
-        List<String> lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
+       lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
 
         assertEquals(lines.size(),19);
     }
 
     @Test
     public void testReadTalksValues() {
+        lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
+        //Writing Fast Tests Against Enterprise Rails 60min
+
+        talk  = new Talk("Writing Fast Tests Against Enterprise Rails",60, TalkLength.MINUTES);
+        assertEquals(talk, FilesUtil.parseInputLine(lines.get(0)));
 
     }
 }
