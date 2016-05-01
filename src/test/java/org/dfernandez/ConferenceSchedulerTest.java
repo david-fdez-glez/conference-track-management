@@ -22,6 +22,9 @@ public class ConferenceSchedulerTest {
     static final String INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED = "src/test/resources/input_file_talks_session_morning_expected";
     static final String INPUT_FILE_TALKS_SESSION_TRACK_ONE = "src/test/resources/input_file_talks_session_track_one";
     static final String INPUT_FILE_TALKS_SESSION_TRACK_ONE_EXPECTED = "src/test/resources/input_file_talks_session_track_one_expected";
+    static final String INPUT_FILE_TALKS = "src/test/resources/input_file_talks";
+    static final String INPUT_FILE_TALKS_EXPECTED = "src/test/resources/input_file_talks_expected";
+
 
     List<String> lines;
 
@@ -34,17 +37,24 @@ public class ConferenceSchedulerTest {
 
 
     @Test
-    public void testConferenceScheduleSessionMorning() throws IOException{
+    public void testConferenceScheduleSessionMorning() throws IOException {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS_SESSION_MORNING);
         conference = new ConferenceScheduler().schedule(lines);
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset())));
     }
 
     @Test
-    public void testConferenceScheduleSessionTrackOne() throws IOException{
+    public void testConferenceScheduleSessionTrackOne() throws IOException {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS_SESSION_TRACK_ONE);
         conference = new ConferenceScheduler().schedule(lines);
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_TRACK_ONE_EXPECTED, Charset.defaultCharset())));
+    }
+
+    @Test
+    public void testConferenceScheduleSessionTrackTwo() throws IOException {
+        lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
+        conference = new ConferenceScheduler().schedule(lines);
+        assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_EXPECTED, Charset.defaultCharset())));
     }
 
 
