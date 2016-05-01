@@ -5,6 +5,10 @@ public class ConferenceManagerMain
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        String path = "src/main/resources/input_file_talks";
+
+        if( args.length > 0) {
+            path = args[0];
+        }
     }
 }
