@@ -1,6 +1,8 @@
 package org.dfernandez.model;
 
 
+import org.dfernandez.util.TimeUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,5 +24,23 @@ public class Session {
         }
         talks.add(talk);
         remainingDuration -=talk.getDurationInMinutes();
+    }
+
+    public boolean hasRoom(Talk talk) {
+        return remainingDuration >= talk.getDurationInMinutes();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        int talkStartTime = startTime;
+
+        for(Talk talk: talks) {
+            sb.append(TimeUtil.getScheduledTime(talkStartTime) + " " + talk + "\n");
+            talkStartTime += talk.getDurationInMinutes();
+        }
+
+        return sb.toString();
     }
 }

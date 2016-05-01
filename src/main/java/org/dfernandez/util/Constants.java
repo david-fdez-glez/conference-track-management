@@ -21,4 +21,5 @@ public final class Constants {
 
     public final static int MAX_TALK_DURATION  = Collections.max(Arrays.asList(MORNING_SESSION_DURATION,LUNCH_SESSION_DURATION, AFTERNOON_SESSION_DURATION));
 
+    public final static String LUNCH_TALK_NAME = "Lunch";
 }

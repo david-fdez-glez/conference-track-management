@@ -25,7 +25,8 @@ public class Conference {
         for(int i=0; i< tracks.size(); i++) {
             sb.append(("Track " + (i +1) +":\n"));
             sb.append(tracks.get(i));
-            sb.append("\n");
+            // Need to delete the last extra new line character added inside Sessions toString()
+            sb.deleteCharAt(sb.lastIndexOf("\n"));
         }
         return sb.toString();
     }
