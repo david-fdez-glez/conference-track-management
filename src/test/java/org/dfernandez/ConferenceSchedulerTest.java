@@ -20,15 +20,17 @@ public class ConferenceSchedulerTest {
 
     static final String INPUT_FILE_TALKS_SESSION_MORNING = "src/test/resources/input_file_talks_session_morning";
     static final String INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED = "src/test/resources/input_file_talks_session_morning_expected";
+    static final String INPUT_FILE_TALKS_SESSION_TRACK_ONE = "src/test/resources/input_file_talks_session_track_one";
+    static final String INPUT_FILE_TALKS_SESSION_TRACK_ONE_EXPECTED = "src/test/resources/input_file_talks_session_track_one_expected";
 
     List<String> lines;
 
     Conference conference;
+
     @Before
     public void init() {
 
     }
-
 
 
     @Test
@@ -37,4 +39,13 @@ public class ConferenceSchedulerTest {
         conference = new ConferenceScheduler().schedule(lines);
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset())));
     }
+
+    @Test
+    public void testConferenceScheduleSessionTrackOne() throws IOException{
+        lines = FilesUtil.readAllLines(INPUT_FILE_TALKS_SESSION_TRACK_ONE);
+        conference = new ConferenceScheduler().schedule(lines);
+        assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_TRACK_ONE_EXPECTED, Charset.defaultCharset())));
+    }
+
+
 }
