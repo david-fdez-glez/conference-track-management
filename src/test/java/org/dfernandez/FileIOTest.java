@@ -8,11 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import static org.hamcrest.Matchers.equalTo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class FileIOTest {
 
@@ -40,12 +38,17 @@ public class FileIOTest {
     }
 
     @Test
-    public void testReadTalksValues() {
+    public void testReadTalkFirstLineValue() {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
-        //Writing Fast Tests Against Enterprise Rails 60min
-
         talk  = new Talk("Writing Fast Tests Against Enterprise Rails",60, TalkLength.MINUTES);
         assertEquals(talk, FilesUtil.parseInputLine(lines.get(0)));
+    }
+
+    @Test
+    public void testReadTalkSixLineValue() {
+        lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
+        talk  = new Talk("Rails for Python Developers",1, TalkLength.LIGHTENING);
+        assertEquals(talk, FilesUtil.parseInputLine(lines.get(5)));
 
     }
 }

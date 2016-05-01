@@ -51,10 +51,10 @@ public class FilesUtil {
 
         // Match the name
         String name = matcher.group(1);
-        //Match unit
+        // Match unit
         String durationString = matcher.group(2);
         // Check if there is no duration, because lightning could has no duration assigned
-        if(durationString.isEmpty()) {
+        if(durationString == null) {
              durationString = "1";
         }
         int duration = Integer.parseInt(durationString);
