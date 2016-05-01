@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 
 public class FilesUtil {
 
+    // Pattern Talk Line
     public static final Pattern TALK_LINE_PATTERN = Pattern.compile(
             "^(.+)\\s(\\d+)?\\s?((min)|(lightning))$");
     /**
@@ -33,7 +34,11 @@ public class FilesUtil {
         return lines;
     }
 
-
+    /**
+     * Parse string line, and try convert to Talk
+     * @param line
+     * @return Talk object or null
+     */
     public static Talk parseInputLine(String line) {
         if(line.length() == 0) {
             return null;
@@ -44,15 +49,16 @@ public class FilesUtil {
             return null;
         }
 
-
+        // Match the name
         String name = matcher.group(1);
-        // Lightining
+        //Match unit
         String durationString = matcher.group(2);
+        // Check if there is no duration, because lightning could has no duration assigned
         if(durationString.isEmpty()) {
              durationString = "1";
         }
         int duration = Integer.parseInt(durationString);
-
+        // Match Unit
         TalkLength talkLength;
         if(matcher.group(3).equalsIgnoreCase("min")) {
             talkLength = TalkLength.MINUTES;
