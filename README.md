@@ -42,6 +42,62 @@ java -jar target/conference-track-1.0-SNAPSHOT.jar
 
 
 
+################ DESIGN
+
+
+######## MODEL
+
+#### TALK
+Represents an individual event, which has a name, startTime and duration
+
+#### Session
+Each session has multiple talks
+
+#### Track
+Each track has a morning session and afternoon session
+
+#### Conference
+Each Conference has multiple tracks
+
+
+######## UTIL
+
+#### Constants
+Useful constants
+
+#### FilesUtil
+Helper to read and parse Files
+
+#### TimeUtil
+Helper to translate startTime to String (9*60 => 09:00 AM)
+
+
+######## Service
+
+#### ConferenceScheduler
+(*) ConferenceScheduler provides a method called schedule(), which will create a Conference Object,which represents
+a scheduled conference with tracks, sessions and talks
+
+(*) Example of use:
+/*
+// path: pathToFile
+ Writing Fast Tests Against Enterprise Rails 60min
+ Overdoing it in Python 45min
+ Rails for Python Developers lightning
+// END FILE
+*/
+List<String> lines = FilesUtil.readAllLines(path);
+Conference conference = new ConferenceScheduler().schedule(lines);
+
+
+
+
+
+
+
+
+
+
 
 
 
