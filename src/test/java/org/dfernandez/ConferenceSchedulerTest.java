@@ -35,14 +35,6 @@ public class ConferenceSchedulerTest {
     public void testConferenceScheduleSessionMorning() throws IOException{
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS_SESSION_MORNING);
         conference = new ConferenceScheduler().schedule(lines);
-        System.out.println("START FilesUTIL");
-        System.out.println(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset()));
-        System.out.println("START conference");
-        System.out.println(conference.toString());
-        System.out.println("FINISH");
-
-        //assertTrue(conference.toString().equals(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset())));
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset())));
-        //assertEquals(conference.toString(),FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset()));
     }
 }

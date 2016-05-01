@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
 public class FilesUtil {
 
     // Pattern Talk Line
-    public static final Pattern TALK_LINE_PATTERN = Pattern.compile(
-            "^(.+)\\s(\\d+)?\\s?((min)|(lightning))$");
+    public static final Pattern TALK_LINE_PATTERN = Pattern.compile("^(.+)\\s(\\d+)?\\s?((min)|(lightning))$");
+
     /**
      * I'm assuming the purpose for this test is not to validate the IO Operations
      * This is why I'm not doing anything when I catch the errors
