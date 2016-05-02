@@ -1,7 +1,8 @@
 package org.dfernandez;
 
 import org.dfernandez.model.Conference;
-import org.dfernandez.service.ConferenceScheduler;
+import org.dfernandez.service.ConferenceSchedulerService;
+import org.dfernandez.service.ConferenceSchedulerServiceImpl;
 import org.dfernandez.util.FilesUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,7 @@ public class ConferenceSchedulerTest {
     static final String INPUT_FILE_TALKS = "src/test/resources/input_file_talks";
     static final String INPUT_FILE_TALKS_EXPECTED = "src/test/resources/input_file_talks_expected";
 
+    ConferenceSchedulerService conferenceSchedulerService;
 
     List<String> lines;
 
@@ -29,28 +31,28 @@ public class ConferenceSchedulerTest {
 
     @Before
     public void init() {
-
+       conferenceSchedulerService = new ConferenceSchedulerServiceImpl();
     }
 
 
     @Test
     public void testConferenceScheduleSessionMorning() throws IOException {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS_SESSION_MORNING);
-        conference = new ConferenceScheduler().schedule(lines);
+        conference = conferenceSchedulerService.schedule(lines);
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_MORNING_EXPECTED, Charset.defaultCharset())));
     }
 
     @Test
     public void testConferenceScheduleSessionTrackOne() throws IOException {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS_SESSION_TRACK_ONE);
-        conference = new ConferenceScheduler().schedule(lines);
+        conference = conferenceSchedulerService.schedule(lines);
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_SESSION_TRACK_ONE_EXPECTED, Charset.defaultCharset())));
     }
 
     @Test
     public void testConferenceScheduleSessionTrackTwo() throws IOException {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
-        conference = new ConferenceScheduler().schedule(lines);
+        conference = conferenceSchedulerService.schedule(lines);
         assertThat(conference.toString(), equalTo(FilesUtil.readFile(INPUT_FILE_TALKS_EXPECTED, Charset.defaultCharset())));
     }
 

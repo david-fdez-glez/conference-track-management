@@ -79,9 +79,15 @@ Helper to translate startTime to String (9*60 => 09:00 AM)
 
 ######## Service
 
-#### ConferenceScheduler
-(*) ConferenceScheduler provides a method called schedule(), which will create a Conference Object,which represents
-a scheduled conference with tracks, sessions and talks
+#### ConferenceSchedulerService
+Interface with method public Conference schedule(List<String> lines);
+
+
+#### ConferenceSchedulerServiceImpl
+Implementation for interface  ConferenceSchedulerService
+
+(*) ConferenceSchedulerServiceImpl provides a method called schedule(), which will return a Conference Object,
+representing a scheduled conference with tracks, sessions and talks
 
 (*) Example of use:
 /*
@@ -91,8 +97,11 @@ a scheduled conference with tracks, sessions and talks
  Rails for Python Developers lightning
 // END FILE
 */
+ConferenceSchedulerService conferenceSchedulerService = new ConferenceSchedulerServiceImpl();
+
 List<String> lines = FilesUtil.readAllLines(path);
-Conference conference = new ConferenceScheduler().schedule(lines);
+Conference conference = conferenceSchedulerService.schedule(lines);
+System.out.println(conference);
 
 
 

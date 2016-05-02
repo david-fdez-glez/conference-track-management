@@ -2,15 +2,19 @@ package org.dfernandez;
 
 
 import org.dfernandez.model.Conference;
-import org.dfernandez.service.ConferenceScheduler;
+import org.dfernandez.service.ConferenceSchedulerService;
+import org.dfernandez.service.ConferenceSchedulerServiceImpl;
 import org.dfernandez.util.FilesUtil;
 
 import java.util.List;
 
-public class ConferenceManagerMain
-{
+public class ConferenceManagerMain {
+
+
     public static void main( String[] args )
     {
+        ConferenceSchedulerService conferenceSchedulerService = new ConferenceSchedulerServiceImpl();
+
         String path = "src/main/resources/input_file_talks";
 
         if( args.length > 0) {
@@ -20,7 +24,7 @@ public class ConferenceManagerMain
         }
 
         List<String> lines = FilesUtil.readAllLines(path);
-        Conference conference = new ConferenceScheduler().schedule(lines);
+        Conference conference = conferenceSchedulerService.schedule(lines);
 
         System.out.println(conference);
         System.out.println();

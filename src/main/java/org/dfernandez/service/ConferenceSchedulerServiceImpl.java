@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ConferenceScheduler {
+public class ConferenceSchedulerServiceImpl implements ConferenceSchedulerService {
 
     public Conference schedule(List<String> lines) {
         Conference conference = new Conference();
