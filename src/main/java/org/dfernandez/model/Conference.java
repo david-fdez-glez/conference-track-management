@@ -1,6 +1,5 @@
 package org.dfernandez.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

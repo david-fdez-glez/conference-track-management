@@ -25,13 +25,13 @@ public class ConferenceScheduler {
         while(talks.size() != 0) {
             // Add Morning Session
             Session morningSession = new Session(Constants.MORNING_SESSION_DURATION, Constants.MORNING_SESSION_START_TIME);
-            fillSessionWithTalks(morningSession,talks);
+            addTalksToSession(morningSession,talks);
             // Add Lunch Session
             Session lunchSession = new Session(Constants.LUNCH_SESSION_DURATION, Constants.LUNCH_SESSION_START_TIME);
             lunchSession.addTalk(new Talk(Constants.LUNCH_TALK_NAME,Constants.LUNCH_SESSION_DURATION, TalkLength.MINUTES));
             // Add Afternoon Session
             Session afternoonSession = new Session(Constants.AFTERNOON_SESSION_DURATION, Constants.AFTERNOON_SESSION_START_TIME);
-            fillSessionWithTalks(afternoonSession,talks);
+            addTalksToSession(afternoonSession,talks);
             // Add Networking Event
             Session networkingSession = new Session(Constants.NETWORKING_EVENT_DURATION,Constants.NETWORKING_EVENT_MIN_START_TIME);
             Talk networkEventTalk = new Talk(Constants.NETWORKING_EVENT_NAME,Constants.NETWORKING_EVENT_DURATION,TalkLength.MINUTES);
@@ -49,17 +49,18 @@ public class ConferenceScheduler {
     }
 
     /**
-     * Add talk to the session, and remove the talk from the List
+     * Add talks to the session, and remove the talk from the List
      * @param session
      * @param talks
      */
-    private static void fillSessionWithTalks(Session session, List<Talk> talks) {
+    private static void addTalksToSession(Session session, List<Talk> talks) {
         for (Iterator<Talk> iter = talks.iterator(); iter.hasNext(); ) {
             Talk talk = iter.next();
             // Check if there is space for the talk in the Session
             if(session.hasRoom(talk)) {
-                session.addTalk(talk);
-                iter.remove();
+                if(session.addTalk(talk)) {
+                    iter.remove();
+                }
             }
         }
     }

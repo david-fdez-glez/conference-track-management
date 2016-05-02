@@ -20,12 +20,19 @@ public class Session {
     public int getStartTime() {
         return this.startTime;
     }
-    public void addTalk(Talk talk) {
-        if(remainingDuration < talk.getDurationInMinutes()) {
-            // TODO CATCH ERROR
+
+    /**
+     * Add a talk to the session
+     * @param talk
+     * @return true if the talk was added to the Session
+     */
+    public boolean addTalk(Talk talk) {
+        if(remainingDuration >= talk.getDurationInMinutes()) {
+            talks.add(talk);
+            remainingDuration -= talk.getDurationInMinutes();
+            return true;
         }
-        talks.add(talk);
-        remainingDuration -=talk.getDurationInMinutes();
+        return false;
     }
 
     /**
