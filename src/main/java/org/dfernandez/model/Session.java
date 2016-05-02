@@ -1,6 +1,7 @@
 package org.dfernandez.model;
 
 import org.dfernandez.util.TimeUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
