@@ -1,20 +1,11 @@
 package org.dfernandez;
 
-
-import org.dfernandez.model.Talk;
-import org.dfernandez.model.TalkLength;
 import org.dfernandez.util.Constants;
-import org.dfernandez.util.FilesUtil;
 import org.dfernandez.util.TimeUtil;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 
 public class TimeUtilTest {
 

@@ -1,8 +1,6 @@
 package org.dfernandez.model;
 
-
 import org.dfernandez.util.TimeUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,14 +28,23 @@ public class Session {
         remainingDuration -=talk.getDurationInMinutes();
     }
 
+    /**
+     * Check if there is enough time for talk
+     * @param talk
+     * @return
+     */
     public boolean hasRoom(Talk talk) {
         return remainingDuration >= talk.getDurationInMinutes();
     }
 
-
+    /**
+     * Add networking Event to the session
+     * @param session
+     */
     public  void addNetworkingEvent(Session session) {
         this.networkingEvent = session;
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

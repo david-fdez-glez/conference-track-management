@@ -18,9 +18,9 @@ public class FileIOTest {
 
     List<String> lines;
     Talk talk;
+
     @Before
-    public void init() {
-     }
+    public void init() {}
 
 
     @Test
@@ -31,9 +31,7 @@ public class FileIOTest {
 
     @Test
     public void testReadFileLines() {
-
        lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
-
         assertEquals(lines.size(),19);
     }
 
@@ -49,6 +47,5 @@ public class FileIOTest {
         lines = FilesUtil.readAllLines(INPUT_FILE_TALKS);
         talk  = new Talk("Rails for Python Developers",1, TalkLength.LIGHTENING);
         assertEquals(talk, FilesUtil.parseInputLine(lines.get(5)));
-
     }
 }

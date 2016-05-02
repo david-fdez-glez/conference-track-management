@@ -6,15 +6,12 @@ import org.dfernandez.util.FilesUtil;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.List;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class ConferenceSchedulerTest {
 

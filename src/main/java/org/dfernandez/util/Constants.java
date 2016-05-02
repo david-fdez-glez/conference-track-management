@@ -24,5 +24,5 @@ public final class Constants {
     public final static int NETWORKING_EVENT_DURATION = 60;
 
 
-    public final static int NETWORKING_EVENT_MIN_START_TIME = 16*60; // 04:00 PM
+    public final static int NETWORKING_EVENT_MIN_START_TIME = 16*60; // 4pm
 }

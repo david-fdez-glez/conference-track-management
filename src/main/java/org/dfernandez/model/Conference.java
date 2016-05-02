@@ -18,8 +18,8 @@ public class Conference {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
 
+        StringBuilder sb = new StringBuilder();
         sb.append("Conference schedule:\n\n");
 
         for(int i=0; i< tracks.size(); i++) {
@@ -29,7 +29,6 @@ public class Conference {
 
         }
         // Need to delete the last extra new line character added inside Sessions toString()
-
         sb.deleteCharAt(sb.lastIndexOf("\n"));
         sb.deleteCharAt(sb.lastIndexOf("\n"));
 

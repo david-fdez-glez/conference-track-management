@@ -78,6 +78,7 @@ public class FilesUtil {
     }
 
     /**
+     * Function to read a file, and return a String
      *
      * @param path
      * @param encoding
