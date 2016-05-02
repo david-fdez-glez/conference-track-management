@@ -1,7 +1,9 @@
 Problem Two: Conference Track Management
-*************************************************************8
+************************************************************************************************************************
 
-You are planning a big programming conference and have received many proposals which have passed the initial screen process but you're having trouble fitting them into the time constraints of the day -- there are so many possibilities! So you write a program to do it for you.
+You are planning a big programming conference and have received many proposals which have passed the initial screen
+process but you're having trouble fitting them into the time constraints of the day -- there are so many possibilities!
+So you write a program to do it for you.
 The conference has multiple tracks each of which has a morning and afternoon session.
 Each session contains multiple talks.
 Morning sessions begin at 9am and must finish by 12 noon, for lunch.
@@ -11,8 +13,10 @@ No talk title has numbers in it.
 All talk lengths are either in minutes (not hours) or lightning (5 minutes).
 Presenters will be very punctual; there needs to be no gap between sessions.
 
-Note that depending on how you choose to complete this problem, your solution may give a different ordering or combination of talks into tracks. This is acceptable; you don’t need to exactly duplicate the sample output given here.
+Note that depending on how you choose to complete this problem, your solution may give a different ordering or
+combination of talks into tracks. This is acceptable; you don’t need to exactly duplicate the sample output given here.
 
+************************************************************************************************************************
 
 
 ####### How to Build
@@ -32,7 +36,7 @@ mvn test
 
 cd /path/to/project
 
-java -jar target/conference-track-1.0-SNAPSHOT.jar path_to_file
+java -jar target/conference-track-1.0-SNAPSHOT.jar path_to_file_test_input
 
 
 #### or  (system will use a default file)
@@ -51,13 +55,14 @@ java -jar target/conference-track-1.0-SNAPSHOT.jar
 Represents an individual event, which has a name, startTime and duration
 
 #### Session
-Each session has multiple talks
+Each session has multiple talks. It has a startTime, and different duration: morning,lunch and afternoon.
+Afternoon session also has a networking event
 
 #### Track
-Each track has a morning session and afternoon session
+Each track has a morning, lunch and  afternoon session.
 
 #### Conference
-Each Conference has multiple tracks
+Each Conference has multiple tracks.
 
 
 ######## UTIL

@@ -1,6 +1,5 @@
 package org.dfernandez.model;
 
-
 public class Talk {
 
     private String name;

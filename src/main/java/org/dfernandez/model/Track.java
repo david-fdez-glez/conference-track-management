@@ -1,6 +1,5 @@
 package org.dfernandez.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,6 @@ public class Track {
     public void addSession(Session session) {
         sessions.add(session);
     }
-
 
     @Override
     public String toString() {
